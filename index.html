@@ -1,142 +1,225 @@
-<html lang="es"><head><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JoyasHermanas</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Tipografía elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&amp;display=swap" rel="stylesheet">
+<title>Joyas Hermanas</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #111 0%, #000 60%);
-      font-family: 'Playfair Display', serif;
-      color: #e6d9a2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
-    .card {
-     
-      max-width: 420px;
-      padding: 50px 35px;
-      text-align: center;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(230,217,162,0.25);
-      border-radius: 22px;
-      backdrop-filter: blur(8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
-    }
-
-    .logo {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 25px;
-      border-radius: 50%;
-      border: 1px solid rgba(230,217,162,0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      letter-spacing: 2px;
-      .logo-img {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  margin: 0 auto 25px;
-  display: block;
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
 }
 
-    }
+body {
+  background: #000;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
 
-    h1 {
-      margin: 0;
-      font-size: 30px;
-      letter-spacing: 3px;
-      font-weight: 600;
-    }
+/* ===== VIDEO / IMAGEN DE FONDO ===== */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
 
-    .subtitle {
-      margin-top: 10px;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(230,217,162,0.75);
-    }
+.bg video,
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35);
+}
 
-    .divider {
-      width: 60px;
-      height: 1px;
-      background: rgba(230,217,162,0.4);
-      margin: 30px auto;
-    }
+/* ===== OVERLAY OSCURO ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0,0,0,0.3), #000);
+  z-index: -1;
+}
 
-    a.button {
-      display: block;
-      padding: 16px;
-      margin: 14px 0;
-      text-decoration: none;
-      color: #e6d9a2;
-      border: 1px solid rgba(230,217,162,0.35);
-      border-radius: 14px;
-      font-size: 15px;
-      letter-spacing: 1.5px;
-      transition: all 0.35s ease;
-    }
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
+}
 
-    a.button:hover {
-      background: #e6d9a2;
-      color: #000;
-    }
+/* ===== LOGO ===== */
+.logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 25px;
+  border: 1px solid rgba(212,175,55,0.6);
+}
 
-    .footer {
-      margin-top: 35px;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      color: rgba(230,217,162,0.6);
-     .logo-img {
-  width: 90px !important;
-  max-width: 90px !important;
-  height: auto !important;
-  display: block;
-  margin: 0 auto 20px;
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+/* ===== TITULO ===== */
+h1 {
+  text-align: center;
+  font-size: 42px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
 
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 60px;
+}
 
-    }
-  </style>
+/* ===== GALERIA ===== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
 
+.card {
+  background: rgba(20,20,20,0.8);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
 
-<style type="text/css" id="operaUserStyle"></style><style id="MTMwMDAwMDAxOTk5OTkzNA=="></style><script type="text/javascript" charset="utf-8" defer="" async="" src="chrome-extension://ohahgichchibmnlgekkfobeenmoiagpk/inject-scripts/patch-xhr.js" data-params="{}"></script><style type="text/css"></style></head>
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.card .info {
+  padding: 18px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card span {
+  color: #d4af37;
+  font-size: 14px;
+}
+
+/* ===== BOTONES ===== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 30px;
+  border-radius: 40px;
+  border: 1px solid rgba(212,175,55,0.6);
+  color: #d4af37;
+  text-decoration: none;
+  letter-spacing: 2px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 12px;
+  color: #777;
+}
+</style>
+</head>
 
 <body>
-  <div class="card">
 
-    <!-- LOGO (puedes cambiar por imagen luego) -->
-  <img src="fbaa0726-010a-4872-a3c7-a3a5870a2323.jpg" style="width:80px; max-width:80px; height:auto; display:block; margin:0 auto 20px;">
+<!-- FONDO -->
+<div class="bg">
+  <!-- Si usas VIDEO -->
+  <!-- <video src="bg.mp4" autoplay muted loop></video> -->
 
+  <!-- Si usas IMAGEN -->
+  <img src="bg.jpg">
+</div>
+<div class="overlay"></div>
 
-    <h1>JoyasHermanas</h1>
-    <div class="subtitle">ORO LAMINADO 18K · Plata-moissanita</div>
+<div class="container">
 
-    <div class="divider"></div>
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="logo.jpg">
+  </div>
 
-    <a class="button" href="https://wa.link/gljkhn">CONSULTORÍA WHATSAPP</a>
-    <a class="button" href="https://docs.google.com/document/d/1URLZR6ONuEqyZan8h6TjvhkTF93zUYbqwafFGK8iYLY/edit?usp=sharing">CATÁLOGO</a>
-    <a class="button" href="https://www.instagram.com/joyas_hermanas?igsh=ZWI3dWNiN2p5ZXhw">INSTAGRAM</a>
-    <a class="button" href="https://www.tiktok.com/@joyashermanascol?_r=1&amp;_t=ZM-92LL8gp6FBI">TIKTOK</a>
+  <h1>JOYAS HERMANAS</h1>
+  <div class="subtitle">ALTA JOYERÍA</div>
 
-    <div class="footer">
-      ENVÍOS NACIONALES E INTERNACIONALES<br>
-      GARANTÍA HASTA 4 AÑOS
+  <!-- GALERIA -->
+  <div class="gallery">
+
+    <div class="card">
+      <img src="joya1.jpg">
+      <div class="info">
+        <h3>Anillo Diamante</h3>
+        <span>Oro 18K</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="joya2.jpg">
+      <div class="info">
+        <h3>Cadena Italiana</h3>
+        <span>Oro Laminado</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="joya3.jpg">
+      <div class="info">
+        <h3>Pulsera Premium</h3>
+        <span>Edición Limitada</span>
+      </div>
     </div>
 
   </div>
 
+  <!-- BOTONES -->
+  <div class="buttons">
+    <a class="btn" href="https://wa.me/573000000000" target="_blank">WHATSAPP</a>
+    <a class="btn" href="catalogo.pdf" target="_blank">CATÁLOGO</a>
+  </div>
 
-<div id="give-freely-root-ejkiikneibegknkgimmihdpcbcedgmpo" class="give-freely-root" data-extension-id="ejkiikneibegknkgimmihdpcbcedgmpo" data-extension-name="Volume Booster" style="display: block;"></div></body></html>
+  <footer>
+    © 2025 Joyas Hermanas — Luxury Jewelry
+  </footer>
+
+</div>
+
+</body>
+</html>
