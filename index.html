@@ -1,225 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Joyas Hermanas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Joyas Hermanas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-image: url("images/background.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #3b2f2f;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    .overlay {
+      background-color: rgba(245, 240, 230, 0.85);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Playfair Display', serif;
-}
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-body {
-  background: #000;
-  color: #f5f5f5;
-  overflow-x: hidden;
-}
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #c8b79c;
+      margin-bottom: 15px;
+    }
 
-/* ===== VIDEO / IMAGEN DE FONDO ===== */
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-}
+    h1 {
+      font-size: 36px;
+      letter-spacing: 2px;
+      margin: 10px 0;
+    }
 
-.bg video,
-.bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.35);
-}
+    p.subtitle {
+      font-size: 16px;
+      color: #6b5a4a;
+    }
 
-/* ===== OVERLAY OSCURO ===== */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.3), #000);
-  z-index: -1;
-}
+    .cards {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 50px 20px;
-}
+    .card {
+      background-color: #fff;
+      width: 260px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
 
-/* ===== LOGO ===== */
-.logo {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 25px;
-  border: 1px solid rgba(212,175,55,0.6);
-}
+    .card:hover {
+      transform: translateY(-8px);
+    }
 
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
 
-/* ===== TITULO ===== */
-h1 {
-  text-align: center;
-  font-size: 42px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
+    .card h3 {
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+    }
 
-.subtitle {
-  text-align: center;
-  font-size: 14px;
-  letter-spacing: 3px;
-  color: #d4af37;
-  margin-bottom: 60px;
-}
+    .catalogo {
+      text-align: center;
+      margin: 40px 0;
+    }
 
-/* ===== GALERIA ===== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 60px;
-}
+    .catalogo a {
+      background-color: #c8b79c;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
 
-.card {
-  background: rgba(20,20,20,0.8);
-  border-radius: 18px;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
+    .socials {
+      text-align: center;
+      margin-top: 50px;
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-}
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      background-color: #3b2f2f;
+      padding: 12px 18px;
+      border-radius: 25px;
+      font-size: 14px;
+    }
 
-.card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-}
-
-.card .info {
-  padding: 18px;
-}
-
-.card h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
-.card span {
-  color: #d4af37;
-  font-size: 14px;
-}
-
-/* ===== BOTONES ===== */
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 14px 30px;
-  border-radius: 40px;
-  border: 1px solid rgba(212,175,55,0.6);
-  color: #d4af37;
-  text-decoration: none;
-  letter-spacing: 2px;
-  transition: background 0.3s, color 0.3s;
-}
-
-.btn:hover {
-  background: #d4af37;
-  color: #000;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  margin-top: 80px;
-  font-size: 12px;
-  color: #777;
-}
-</style>
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 13px;
+      color: #6b5a4a;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="overlay">
 
-<!-- FONDO -->
-<div class="bg">
-  <!-- Si usas VIDEO -->
-  <!-- <video src="bg.mp4" autoplay muted loop></video> -->
+    <header>
+      <img src="images/logo.jpg" alt="Logo Joyas Hermanas" class="logo">
+      <h1>JOYAS HERMANAS</h1>
+      <p class="subtitle">Elegancia eterna en cada detalle</p>
+    </header>
 
-  <!-- Si usas IMAGEN -->
-  <img src="bg.jpg">
-</div>
-<div class="overlay"></div>
-
-<div class="container">
-
-  <!-- LOGO -->
-  <div class="logo">
-    <img src="logo.jpg">
-  </div>
-
-  <h1>JOYAS HERMANAS</h1>
-  <div class="subtitle">ALTA JOYERÍA</div>
-
-  <!-- GALERIA -->
-  <div class="gallery">
-
-    <div class="card">
-      <img src="joya1.jpg">
-      <div class="info">
-        <h3>Anillo Diamante</h3>
-        <span>Oro 18K</span>
+    <section class="cards">
+      <div class="card">
+        <img src="images/joya1.jpg">
+        <h3>Moissanita Premium</h3>
       </div>
+
+      <div class="card">
+        <img src="images/joya2.jpg">
+        <h3>Oro Laminado</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/joya3.jpg">
+        <h3>Diseño Exclusivo</h3>
+      </div>
+    </section>
+
+    <div class="catalogo">
+      <a href="PEGAR_AQUI_TU_LINK_DE_DRIVE" target="_blank">
+        Ver catálogo completo
+      </a>
     </div>
 
-    <div class="card">
-      <img src="joya2.jpg">
-      <div class="info">
-        <h3>Cadena Italiana</h3>
-        <span>Oro Laminado</span>
-      </div>
+    <div class="socials">
+      <a href="https://instagram.com/TU_INSTAGRAM" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@TU_TIKTOK" target="_blank">TikTok</a>
+      <a href="https://wa.me/TU_NUMERO" target="_blank">WhatsApp</a>
     </div>
 
-    <div class="card">
-      <img src="joya3.jpg">
-      <div class="info">
-        <h3>Pulsera Premium</h3>
-        <span>Edición Limitada</span>
-      </div>
-    </div>
+    <footer>
+      © 2025 Joyas Hermanas · Luxury Jewelry
+    </footer>
 
   </div>
-
-  <!-- BOTONES -->
-  <div class="buttons">
-    <a class="btn" href="https://wa.me/573000000000" target="_blank">WHATSAPP</a>
-    <a class="btn" href="catalogo.pdf" target="_blank">CATÁLOGO</a>
-  </div>
-
-  <footer>
-    © 2025 Joyas Hermanas — Luxury Jewelry
-  </footer>
-
-</div>
-
 </body>
 </html>
