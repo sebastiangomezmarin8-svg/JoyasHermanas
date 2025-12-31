@@ -31,6 +31,13 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
+      @media (max-width: 768px) {
+  #video-bg {
+    object-fit: contain;
+    background-color: #000; /* evita bordes feos */
+  }
+}
+
     }
 
     /* CAPA OSCURA PARA LEER BIEN */
