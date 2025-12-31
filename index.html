@@ -7,188 +7,56 @@
 
   <style>
     body {
-      <body>
-
-<video class="video-bg" autoplay muted loop playsinline>
-  <source src="videos/Anillo.MP4.mp4" type="video/mp4">
-</video>
-
-<div class="video-overlay"></div>
-
-<div class="overlay">
-  <!-- TODO TU CONTENIDO DE LA PÁGINA -->
-
-      .video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
-
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(245, 240, 230, 0.82);
-  z-index: -1;
-}
-
       margin: 0;
-      font-family: 'Georgia', serif;
-     
+      font-family: "Georgia", serif;
+      background: #e9e1d3;
       color: #3b2f2f;
     }
 
-    .overlay {
-      background-color: rgba(245, 240, 230, 0.85);
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .logo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #c8b79c;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 36px;
-      letter-spacing: 2px;
-      margin: 10px 0;
-    }
-
-    p.subtitle {
-      font-size: 16px;
-      color: #6b5a4a;
-    }
-
-    .cards {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 50px 0;
-    }
-
-    .card {
-      background-color: #fff;
-      width: 260px;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card img {
+    /* VIDEO DE FONDO */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 260px;
+      height: 100%;
       object-fit: cover;
+      z-index: -2;
     }
 
-    .card h3 {
+    /* CAPA PARA OSCURECER / SUAVIZAR */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(233, 225, 211, 0.75);
+      z-index: -1;
+    }
+
+    .overlay {
+      position: relative;
+      padding: 40px;
       text-align: center;
-      padding: 15px;
-      font-size: 18px;
-    }
-
-    .catalogo {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    .catalogo a {
-      background-color: #c8b79c;
-      color: white;
-      padding: 14px 35px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 16px;
-      letter-spacing: 1px;
-    }
-
-    .socials {
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .socials a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-      background-color: #3b2f2f;
-      padding: 12px 18px;
-      border-radius: 25px;
-      font-size: 14px;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 13px;
-      color: #6b5a4a;
     }
   </style>
 </head>
 
 <body>
+
+  <!-- VIDEO -->
+  <video class="video-bg" autoplay loop muted playsinline>
+    <source src="/videos/Anillo.MP4.mp4" type="video/mp4">
+  </video>
+
+  <div class="video-overlay"></div>
+
+  <!-- CONTENIDO -->
   <div class="overlay">
-
-    <header>
-      <img src="images/logo.jpg" alt="Logo Joyas Hermanas" class="logo">
-      <h1>JOYAS HERMANAS</h1>
-      <p class="subtitle">Elegancia eterna en cada detalle</p>
-    </header>
-
-    <section class="cards">
-      <div class="card">
-        <img src="images/joya1.jpg">
-        <h3>Moissanita Premium</h3>
-      </div>
-
-      <div class="card">
-        <img src="images/joya2.jpg">
-        <h3>Oro Laminado</h3>
-      </div>
-
-      <div class="card">
-        <img src="images/joya3.jpg">
-        <h3>Diseño Exclusivo</h3>
-      </div>
-    </section>
-
-    <div class="catalogo">
-      <a href="PEGAR_AQUI_TU_LINK_DE_DRIVE" target="_blank">
-        Ver catálogo completo
-      </a>
-    </div>
-
-    <div class="socials">
-      <a href="https://instagram.com/TU_INSTAGRAM" target="_blank">Instagram</a>
-      <a href="https://tiktok.com/@TU_TIKTOK" target="_blank">TikTok</a>
-      <a href="https://wa.me/TU_NUMERO" target="_blank">WhatsApp</a>
-    </div>
-
-    <footer>
-      © 2025 Joyas Hermanas · Luxury Jewelry
-    </footer>
-
+    <h1>Joyas Hermanas</h1>
+    <p>Alta joyería en moissanita y oro laminado</p>
   </div>
+
 </body>
 </html>
