@@ -1,62 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Joyas Hermanas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Joyas Hermanas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: #e9e1d3;
-      color: #3b2f2f;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    /* VIDEO DE FONDO */
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  color: #3b2f2f;
+  overflow-x: hidden;
+}
 
-    /* CAPA PARA OSCURECER / SUAVIZAR */
-    .video-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(233, 225, 211, 0.75);
-      z-index: -1;
-    }
+/* VIDEO FONDO */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
 
-    .overlay {
-      position: relative;
-      padding: 40px;
-      text-align: center;
-    }
-  </style>
+/* FILTRO BEIGE */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(233, 225, 211, 0.65);
+  z-index: -1;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* TARJETA LUJOSA */
+.card {
+  max-width: 900px;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+
+/* TITULOS */
+.card h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  opacity: 0.85;
+}
+
+/* GALERIA */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* BOTONES */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.buttons a {
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #c8b69a;
+  color: #3b2f2f;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.buttons a:hover {
+  transform: translateY(-3px);
+  background: #b9a887;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- VIDEO -->
-  <video class="video-bg" autoplay loop muted playsinline>
-    <source src="/videos/Anillo.MP4.mp4" type="video/mp4">
-  </video>
+<!-- VIDEO -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="/videos/Anillo.MP4.mp4" type="video/mp4">
+</video>
 
-  <div class="video-overlay"></div>
+<div class="video-overlay"></div>
 
-  <!-- CONTENIDO -->
-  <div class="overlay">
+<div class="container">
+  <div class="card">
     <h1>Joyas Hermanas</h1>
     <p>Alta joyería en moissanita y oro laminado</p>
+
+    <div class="gallery">
+      <img src="https://via.placeholder.com/400x600?text=Joya+1">
+      <img src="https://via.placeholder.com/400x600?text=Joya+2">
+      <img src="https://via.placeholder.com/400x600?text=Joya+3">
+    </div>
+
+    <div class="buttons">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">WhatsApp</a>
+      <a href="#">Ver Catálogo</a>
+    </div>
   </div>
+</div>
 
 </body>
 </html>
